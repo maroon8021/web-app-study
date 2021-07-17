@@ -1,0 +1,29 @@
+.container {
+  width: 800px;
+  margin: 0 auto;
+}
+
+.input-area {
+  display: flex;
+  margin-bottom: 32px;
+}
+
+.input-area-left {
+  width: 80%;
+}
+
+.input-area-left input {
+  width: 100%;
+}
+
+.todo {
+  display: flex;
+  padding: 10px;
+  border: #333 solid 1px;
+  border-radius: 3px;
+  margin-bottom: 10px;
+}
+
+.todo-left {
+  margin-right: 10px;
+}
