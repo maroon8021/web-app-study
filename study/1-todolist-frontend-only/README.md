@@ -1,5 +1,14 @@
 # Todolist Frontend only
 
+ひとまずフロントエンド、とくに react × typescript をベースに、関連するライブラリ等も含めてある程度触れるようになるとよさそう
+
+## 1-1 simple frontend
+
+シンプルに react と typescript と css の知識があれば作れるようなものを作ってみた。
+
+特にメインはここ  
+https://github.com/maroon8021/web-app-study/blob/master/study/1-todolist-frontend-only/src/pages/Page1.tsx
+
 ## メモ
 
 - `WebVitals`

@@ -1,27 +1,35 @@
 import "../styles/page-1.css"
 import { ChangeEvent, useState } from "react"
 
+//　型について https://typescript-jp.gitbook.io/deep-dive/type-system
 type Todo = {
   id: number
   title: string
 }
 
 export const Page1 = () => {
+  // アロー関数 https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Functions/Arrow_functions
+
+  // useState
+  // https://ja.reactjs.org/docs/hooks-overview.html
+  // https://ja.reactjs.org/docs/hooks-state.html
   const [inputValue, setInputValue] = useState<string>("")
   const [todos, setTodos] = useState<Todo[]>([])
 
   const onChangeInput = (e: ChangeEvent<HTMLInputElement>) => {
+    //ChangeEvent https://qiita.com/Takepepe/items/f1ba99a7ca7e66290f24
     setInputValue(e.target.value)
   }
 
   const onClickCreateButton = () => {
     const id = new Date().getTime() //ちょっと面倒だったので一旦時間で生成する
-    setTodos([...todos, { id, title: inputValue }])
+    setTodos([...todos, { id, title: inputValue }]) // スプレッド構文(とついでに分割代入) https://qiita.com/FumioNonaka/items/58358a29850afd7a0f37
     setInputValue("")
   }
 
   const deleteTodo = (id: number) => {
     const remainingTodos = todos.filter((todo) => {
+      // 下のほうにある map もそうだがjsのarrayのmethodは使いこなせる必要ありそう https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Array#instance_methods
       return todo.id !== id
     })
 
