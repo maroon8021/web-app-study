@@ -9,6 +9,18 @@
 特にメインはここ  
 https://github.com/maroon8021/web-app-study/blob/master/study/1-todolist-frontend-only/src/pages/Page1.tsx
 
+### 仕様
+
+- シンプルな todo list
+- 入力部分
+  - todo を入力できる input がある
+  - 上記 input と連動した button を用意。その button をクリックすると、input に入力された文字が todo としてリストに表示される
+  - button を押したあとには input に入力された文字は clear される
+- リスト部分
+  - 上記入力で追加された todo を表示していく
+  - 「入力」で追加されたものはどんどん下に追加される
+  - リストの左側に「☓」ボタンを用意し、それをクリックするとリストから消えるようにする
+
 ## メモ
 
 - `WebVitals`
