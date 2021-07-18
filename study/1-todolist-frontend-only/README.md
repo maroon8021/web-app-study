@@ -21,10 +21,71 @@ https://github.com/maroon8021/web-app-study/blob/master/study/1-todolist-fronten
   - 「入力」で追加されたものはどんどん下に追加される
   - リストの左側に「☓」ボタンを用意し、それをクリックするとリストから消えるようにする
 
+## 1-2 simple frontend with emotion & frontend architecture
+
+CSS in JS のライブラリを入れたり、少し構成を変えてみた。
+振る舞いは `1-1` のものと変わらない
+
+### emotion
+
+CSS in JS ライブラリの一種
+https://emotion.sh/docs/introduction
+https://zenn.dev/irico/articles/d0b2d8160d8e63#emotion
+
+#### 個人的によく使う理由
+
+素の html の記述と css の記述に近い形でかける
+
+### emotion 導入前にやったこと
+
+- `yarn eject` して `create-react-app` から卒業
+  - babel の設定を書き換える必要があった
+    - 参考
+      - https://qiita.com/282Haniwa/items/243f00c39ee7c992d7f7
+      - https://codedaily.io/tutorials/Customize-Create-React-App-without-Ejecting
+    - package.json の中の `babel` のところを書き換えた
+
+### frontend architecture
+
+#### container と component
+
+- ロジック部分と view 部分を分離する
+  - container にロジック部分をもたせるようにする
+    - API による通信/データの取得
+  - component に view 部分をもたせるようにする
+    - props で渡された値をもとにただ表示するだけ
+- component でロジックや state を持っていい場合
+  - 見た目に関するデータ
+    - モーダルの表示/非表示の切り替えフラグ
+  - form の入力情報など
+    - input の value など
+  - ページを去っても揮発していい一時情報
+
+#### Atomic Design
+
+https://bradfrost.com/blog/post/atomic-web-design/
+
+component の粒度に関するもの。  
+再利用性や責任領域を分離するためにお約束的なもの。
+一旦以下で組んでいる
+
+- atoms
+
+  - 複数のページで利用
+  - 複雑ならロジックなどは持たない
+  - container がつかない
+  - molecules との明確な分け方がむずいので一旦 atoms によせる
+
+- organisms
+
+  - 特定のページでしか使わない
+  - atoms を組み合わせて特定の操作や view が表示できる単位のもの
+  - container がつくことがある(必ずしもつくわけではない)
+
+詳細:  
+https://qiita.com/takano-h/items/8731d8e7413d7b1f6d7b
+
 ## メモ
 
 - `WebVitals`
   - https://qiita.com/ozaki25/items/6139cbc70cf988d1c870
-- emotion の設定
-  - https://qiita.com/282Haniwa/items/243f00c39ee7c992d7f7
-  - https://codedaily.io/tutorials/Customize-Create-React-App-without-Ejecting

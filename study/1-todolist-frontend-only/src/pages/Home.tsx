@@ -17,17 +17,25 @@ type Page = {
 }
 
 export const Home = () => {
-  const pages: Page[] = [{ title: "Page:1 simple todo list", path: "page-1" }]
+  const pages: Page[] = [
+    { title: "Page:1 simple todo list", path: "page-1" },
+    {
+      title: "Page:2 simple todo list with emotion & frontend architecture",
+      path: "page-2",
+    },
+  ]
   return (
-    <div>
-      {pages.map((page) => {
-        return (
-          <div css={container}>
-            <h1 css={PageTitle}>Todo List -- Frontend Only</h1>
-            <Link to={page.path}>{page.title}</Link>
-          </div>
-        )
-      })}
+    <div css={container}>
+      <h1 css={PageTitle}>Todo List -- Frontend Only</h1>
+      <ul>
+        {pages.map((page) => {
+          return (
+            <li key={page.path}>
+              <Link to={page.path}>{page.title}</Link>
+            </li>
+          )
+        })}
+      </ul>
     </div>
   )
 }
