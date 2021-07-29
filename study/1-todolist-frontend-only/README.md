@@ -85,6 +85,22 @@ component の粒度に関するもの。
 詳細:  
 https://qiita.com/takano-h/items/8731d8e7413d7b1f6d7b
 
+## 1-3 frontend with useContext + useReducer
+
+ここまでで単一なページでいろいろやることは把握したかもしれないが、単一ページだとしてもより大きなアプリケーションの場合や、そもそも別ページの state を共有したい場合はどうしよっか、というところがあるので、それを解決するための方法を書いていく。
+
+※あえて redux については触れません。興味があったら勉強してみてください。
+
+### useContext & useReducer
+
+詳細: https://panda-program.com/posts/react-usecontext-usereducer
+
+#### useContext
+
+state のバケツリレーを簡素化してくれる  
+https://ja.reactjs.org/docs/hooks-reference.html#usecontext
+https://ja.reactjs.org/docs/context.html
+
 ## メモ
 
 - `WebVitals`

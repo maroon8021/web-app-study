@@ -23,6 +23,10 @@ export const Home = () => {
       title: "Page:2 simple todo list with emotion & frontend architecture",
       path: "page-2",
     },
+    {
+      title: "Page:3 useContext + useReducer",
+      path: "page-3-all",
+    },
   ]
   return (
     <div css={container}>
