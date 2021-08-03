@@ -1,0 +1,32 @@
+version: "3.7"
+services:
+  server:
+    image: node:12.14-stretch-slim
+    ports:
+      - "56001:8080"
+    volumes:
+      - .:/app:cached
+    working_dir: /app
+    environment:
+      - DEBUG=*
+      - PORT=8080
+      - DB_URL=postgresql://superuser:superuserpass@database:5432/db-sample
+    command: "yarn start:dev"
+    restart: always
+    depends_on:
+      - database
+  database:
+    image: postgres:12-alpine
+    ports:
+      - "57001:5432"
+    volumes:
+      - .:/app:cached
+      #- ./.docker/postgresql.conf:/etc/postgresql/postgresql.conf
+    working_dir: /app
+    environment:
+      - POSTGRES_INITDB_ARGS="--no-locale"
+      - POSTGRES_USER=superuser
+      - POSTGRES_PASSWORD=superuserpass
+      - POSTGRES_DB=db-sample
+
+    restart: always
